@@ -1,0 +1,25 @@
+<div class="container" ng-controller="dailyFormCtrl">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{{selection}}
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li ng-repeat="item in dailyForm.seenBy"><a ng-click="setselection(item)">{{item}}</a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+    <div class="form-group">
+        <label for="usr">Name:</label>
+        <input type="text" class="form-control" id="usr">
+    </div>
+
+</div>
+
+
+
+
+
