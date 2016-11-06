@@ -1,103 +1,61 @@
-<?php error_reporting(0); ?>
-<?php include 'database.php'; ?>
-<?php
-
-session_start();
-$log = FALSE;
-if($_SESSION['username'] != '')
-  $log = TRUE;
-
-
-$date = date("Y.m.d");
-
-
-if($_SESSION['user_id'] != '')
-{
-	$dateQuery = "UPDATE user_name SET last_seen = '$date' WHERE user_id='".$_SESSION['user_id']."'";
-	mysqli_query($con, $dateQuery);
-}	
-
-$_SESSION['user_id'] = '';
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Maggie's</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style>
-     /* Remove the navbar's default rounded borders and increase the bottom margin */ 
-      .navbar {
-        margin-bottom: 50px;
-        border-radius: 0;
-	  }
-     
-      /* Add a gray background color and some padding to the footer */
-      footer {
-      background-color: #f2f2f2;
-        padding: 25px;
-      }
-    </style>
-    <link rel="stylesheet" href="animsition/animsition.min.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Maggie's</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+     <link rel="stylesheet" type="text/css" href="styles.css">
+    
 </head>
-<body>  
-  <body background="bkg.jpg">
-  <div class="animsition">
-    <div class="mainmenu">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="index.php" class="animsition-link">Maggie's</a>
-          </div>
-          <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="quickform.php" class="animsition-link">Quick Form</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="dailyform.php">Daily Form
-               <span class="caret"></span></a>
-              </li>
-              <li><a href="dailylog.php" class="animsition-link">Daily Log</a></li>
-           </ul>
-          </div>
-       </div>
-      </nav>  
-    </div>
 
+<body>
+<div class = "container">
+	<div class="wrapper">
+		<form action="" method="post" name="Login_Form" class="form-signin">       
+		    <h3 class="form-signin-heading">Welcome Back! Please Sign In</h3>
+			  <hr class="colorgraph"><br>
+			  
+			  <input type="text" class="form-control" name="Username" placeholder="Username" required="" autofocus="" />
+			  <input type="password" class="form-control" name="Password" placeholder="Password" required=""/>     		  
+			 
+			  <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>  			
+		</form>			
+	</div>
+</div>
+<div ng-view></div>
+<script src="/webjars/angularjs/1.4.9/angular.js"></script>
+<script src="/webjars/angularjs/1.4.9/angular-resource.js"></script>
+<script src="/webjars/angularjs/1.4.9/angular-route.js"></script>
+<script src="/js/app.js"></script>
+<script src="/js/controller.js"></script>
+<link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
+<script type="text/javascript">
+function validate()
+{
+    if(   document.getElementById("Username").value == "admin"
+       && document.getElementById("Password").value == "admin" )
+    {
+        alert( "validation succeeded" );
+       
+    }
+    else
+    {
+        alert( "validation failed" );
+        
+    }
+}
+</script>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-      <div class="page-header">
-      </div>
-
-  <div align="center">
-     <div class="panel panel-primary" style="max-width: 350px;">
-       <div class="panel-heading" align="left">Login</div>
-       <div class="panel-body" align="left">
-         <form role="form" action ="log_in_process.php" method="post">
-           <div class="form-group">
-             <label>User name:</label>
-             <input class="form-control" id="email" name="userLogin">
-           </div>
-           <div class="form-group">
-             <label for="pwd">Password:</label>
-             <input type="password" class="form-control" id="pwd" name="userPasswordLogin">
-           </div>
-             <button type="submit" class="btn btn-default">Login</button>
-         </form>
-       </div>
-     </div>
-   </div>
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="script.js"></script>
-
-  </div>
-
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

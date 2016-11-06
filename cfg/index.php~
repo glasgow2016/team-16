@@ -1,24 +1,17 @@
 <?php error_reporting(0); ?>
 <?php include 'database.php'; ?>
 <?php
-
 session_start();
 $log = FALSE;
 if($_SESSION['username'] != '')
   $log = TRUE;
-
-
 $date = date("Y.m.d");
-
-
 if($_SESSION['user_id'] != '')
 {
 	$dateQuery = "UPDATE user_name SET last_seen = '$date' WHERE user_id='".$_SESSION['user_id']."'";
 	mysqli_query($con, $dateQuery);
 }	
-
 $_SESSION['user_id'] = '';
-
 ?>
 
 
