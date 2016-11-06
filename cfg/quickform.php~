@@ -57,23 +57,23 @@
 	  <div class="panel panel-primary" style="max-width: 350px;">
 	    <div class="panel-heading" align="left">Post a Quick Form</div>
 	     <div class="panel-body" align="left">
-	      <form action = "postform.php" method = "POST" enctype = "multipart/form-data">
+	      <form action = "quickformaction.php" method = "POST" enctype = "multipart/form-data">
 	         <br> </br>
 	           <div class="form-group">
-	             <label for="email">Full Name: </label>
-	             <input type="text" name="authorName">
+	             <label>Full Name: </label>
+	             <input type="text" name="username">
 	           </div>
-			   <div class="form-group">
-				  <label for="sel1">Person:</label>
-				  <select name="year" class="form-control" id="sel1">
-				    <option value=1>PwC</option>
-				    <option value=2>Carer</option>
-				    <option value=3>Professional</option>
-				    <option value=4>Arhitectural</option>
-				    <option value=5>International</option>
-				    <option value=6>Other Visitor</option>
-				  </select>
-			   <div class="form-group">
+		   <div class="form-group">
+			  <label for="sel1">Person:</label>
+			  <select name="person" class="form-control" id="sel1">
+			    <option value=1>PwC</option>
+			    <option value=2>Carer</option>
+			    <option value=3>Professional</option>
+			    <option value=4>Arhitectural</option>
+			    <option value=5>International</option>
+			    <option value=6>Other Visitor</option>
+			  </select>
+		   <div class="form-group">
 	         <input type="submit"/ class="btn btn-info" value="Submit" style="margin-top:10px;">
 	      </form>
 	     </div>

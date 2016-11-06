@@ -1,25 +1,5 @@
 <?php error_reporting(0); ?>
 <?php include 'database.php'; ?>
-<?php
-
-session_start();
-$log = FALSE;
-if($_SESSION['username'] != '')
-  $log = TRUE;
-
-
-$date = date("Y.m.d");
-
-
-if($_SESSION['user_id'] != '')
-{
-	$dateQuery = "UPDATE user_name SET last_seen = '$date' WHERE user_id='".$_SESSION['user_id']."'";
-	mysqli_query($con, $dateQuery);
-}	
-
-$_SESSION['user_id'] = '';
-
-?>
 
 
 <!DOCTYPE html>
@@ -46,7 +26,7 @@ $_SESSION['user_id'] = '';
     <link rel="stylesheet" href="animsition/animsition.min.css" rel="stylesheet">
 </head>
 <body>  
-  <body background="bkg.jpg">
+
   <div class="animsition">
     <div class="mainmenu">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -72,25 +52,33 @@ $_SESSION['user_id'] = '';
       <div class="page-header">
       </div>
 
-  <div align="center">
-     <div class="panel panel-primary" style="max-width: 350px;">
-       <div class="panel-heading" align="left">Login</div>
-       <div class="panel-body" align="left">
-         <form role="form" action ="log_in_process.php" method="post">
-           <div class="form-group">
-             <label>User name:</label>
-             <input class="form-control" id="email" name="userLogin">
-           </div>
-           <div class="form-group">
-             <label for="pwd">Password:</label>
-             <input type="password" class="form-control" id="pwd" name="userPasswordLogin">
-           </div>
-             <button type="submit" class="btn btn-default">Login</button>
-         </form>
-       </div>
-     </div>
-   </div>
 
+	<div align="center">
+	  <div class="panel panel-primary" style="max-width: 350px;">
+	    <div class="panel-heading" align="left">Post a Daily Form</div>
+	     <div class="panel-body" align="left">
+	      <form action = "postform.php" method = "POST" enctype = "multipart/form-data">
+	         <br> </br>
+	           <div class="form-group">
+	             <label for="email">Full Name: </label>
+	             <input type="text" name="authorName">
+	           </div>
+			   <div class="form-group">
+				  <label for="sel1">Person:</label>
+				  <select name="year" class="form-control" id="sel1">
+				    <option value=1>PwC</option>
+				    <option value=2>Carer</option>
+				    <option value=3>Professional</option>
+				    <option value=4>Arhitectural</option>
+				    <option value=5>International</option>
+				    <option value=6>Other Visitor</option>
+				  </select>
+			   <div class="form-group">
+	         <input type="submit"/ class="btn btn-info" value="Submit" style="margin-top:10px;">
+	      </form>
+	     </div>
+	   </div>
+	 </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
